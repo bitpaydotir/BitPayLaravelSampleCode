@@ -57,12 +57,12 @@ class HomeController extends BaseController
                 return view('success');
             }
 
-          //  session()->flash('msg', $result->GetMessage());
+            session()->flash('msg', $result->GetMessage());
             return view('error');
         } catch (\Exception $ex) {
         
-            return view('error');
-            //return response()->json(['error' => 'An error occurred while processing payment: ' . $ex->getMessage()], 500);
+           // return view('error');
+            return response()->json(['error' => 'An error occurred while processing payment: ' . $ex->getMessage()], 500);
         }
     }
 }

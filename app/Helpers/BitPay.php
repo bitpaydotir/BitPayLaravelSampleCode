@@ -64,11 +64,11 @@ class BitPay
         ]);
 
         $jsonResult = $response->json();
-        $result = json_decode($response);
-        $result->amount = $jsonResult->amount;
-        $result->status = $jsonResult->status;
-        $result->cardNum = $jsonResult->cardNum;
-        $result->factorId = $jsonResult->factorId;
+
+        $result->amount = $jsonResult['amount'] ?? null; // Access array keys using []
+        $result->status = $jsonResult['status'] ?? null;
+        $result->cardNum = $jsonResult['cardNum'] ?? null;
+        $result->factorId = $jsonResult['factorId'] ?? null;
         return $result;
     }
 }
